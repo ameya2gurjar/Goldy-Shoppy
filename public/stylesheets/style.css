@@ -2,3 +2,7 @@
 .upload-page #file-chooser-widget {
   margin-bottom: 10px;
 }
+
+#rent-extras, #apartment-extras{
+  display: none;
+}

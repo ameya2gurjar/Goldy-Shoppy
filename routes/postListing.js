@@ -26,6 +26,7 @@ var upload = multer({ storage: multerGridFsStorage });
 router.get('/', function(req, res, next) {
   // console.log(req.user);
   res.render('postListing', {
+    scripts: ['postListing.js'],
     user: req.user
   });
 });
@@ -60,11 +61,30 @@ router.post('/newListing', upload.single('thefile'), function(req, res){
   product.type = req.body.type;
   product.price = req.body.price;
   product.fileId = req.file.id;
+  product.category = req.body.category;
+
+  if(product.category == "Apartment"){
+      var apartment = Object();
+      apartment.beds = req.body.beds;
+      apartment.bath = req.body.bath;
+      apartment.area = req.body.area;
+      apartment.pets = req.body.pets;
+      apartment.parking = req.body.parking;
+      apartment.ac = req.body.ac;
+      product.apartment = apartment;
+  }
+
+  if(product.type == "Rent"){
+      var rent = Object();
+      rent.start = req.body.from_date;
+      rent.end = req.body.to_date;
+      product.rent = rent;
+  }
 
   req.db.collection('products').insertOne(product, function(err, results){
-      res.send("Done")
+      console.log(results);
+      res.send("Done");
   })
-  console.log(product);
 });
 
 module.exports = router;
