@@ -1,0 +1,99 @@
+
+<h1 class="header">Welcome to {{title}}</h1>
+<div id="indexMainDiv">
+  <div id="postIt">
+    <input class="button" type="submit" value="Post Request" id="addRequest">
+    <div class="modal requestForm" id="postItForm">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Add request</p>
+          <button class="delete" aria-label="close" id="closeRequestForm"></button>
+        </header>
+        <section class="modal-card-body">
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="abc">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Contact Number</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" type="number" placeholder="xxx-xxx-xxxx" value="bulma">
+              <span class="icon is-small is-left">
+                <i class="fa fa-user"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fa fa-check"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input " type="email" placeholder="abc@def.com">
+              <span class="icon is-small is-left">
+                <i class="fa fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fa fa-warning"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Category</label>
+            <div class="control">
+              <div class="select">
+                <select>
+                  <option>Select category</option>
+                  <option>Book</option>
+                  <option>Furniture</option>
+                  <option>Miscellaneous</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Request message if any</label>
+            <div class="control">
+              <textarea class="textarea" placeholder="Textarea"></textarea>
+            </div>
+          </div>
+
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-success" id="saveRequest">Save changes</button>
+        </footer>
+      </div>
+    </div>
+    {{#each todo}}
+        {{#if this.done}}
+            <li class="task checked" id="task_{{this._id}}">{{ this.task }}<span class="close" id="close_{{this._id}}">&#10799</span></li>
+        {{else}}
+            <li class="task" id="task_{{this._id}}">{{ this.task }}<span class="close" id="close_{{this._id}}">&#10799</span></li>
+        {{/if}}
+    {{/each}}
+    <!-- <div class="card">
+    <header class="card-header">
+    <p class="card-header-title">
+  </p>
+</header>
+<div class="card-content">
+<div class="content">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+<a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
+<br>
+<time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+</div>
+</div>
+<footer class="card-footer">
+<a href="#" class="card-footer-item">Comment</a>
+</footer>
+</div> -->
+</div>
+</div>
