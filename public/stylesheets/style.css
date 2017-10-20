@@ -6,3 +6,8 @@
 #rent-extras, #apartment-extras{
   display: none;
 }
+
+#map{
+  width: 100%;
+  height: 400px;
+}

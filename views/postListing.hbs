@@ -2,7 +2,10 @@
   <h1 class="title has-text-centered">Sell stuff page</h1>
   <div class="columns">
     <div class="column is-half is-offset-one-quarter">
-      <form action="/postListing/newListing" method="post" enctype="multipart/form-data">
+      <form action="/postListing/newListing" method="post" enctype="multipart/form-data" onsubmit="return validateMyForm();">
+
+        <input type="hidden" value="{{user._json.sub}}" name="user_id"/>
+        <input type="hidden" name="location" required/>
 
       <div class="field">
         <label class="label">Name</label>
@@ -33,24 +36,17 @@
         </div>
       </div>
 
-      <div class="file has-name is-boxed">
-        <label class="file-label">
-          <input class="file-input" type="file" name="thefile" required>
-          <span class="file-cta">
-            <span class="file-icon">
-              <i class="fa fa-upload"></i>
-            </span>
-            <span class="file-label">
-              Choose a file…
-            </span>
-          </span>
-          <span class="file-name">
-            Screen Shot 2017-07-29 at 15.54.25.png
-          </span>
-        </label>
-      </div>
-
       <div id="apartment-extras">
+
+        <div class="field">
+          <label class="label">Address</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Address" name="address">
+          </div>
+          <button type="button" name="get_coordinates" class="button is-primary">Find on map</button>
+              <div id="map"></div>
+        </div>
+
         <div class="columns">
           <div class="column">
             <div class="field">
@@ -142,6 +138,22 @@
         <div class="control">
           <input id="price-input" class="input" type="number" step="0.01" placeholder="Price ($)" name="price" required>
         </div>
+      </div>
+
+
+      <div class="file">
+        <label id="price-label" class="label">Upload additional Images</label>
+        <label class="file-label">
+          <input class="file-input" type="file" name="images" multiple required>
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fa fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Choose a file…
+            </span>
+          </span>
+        </label>
       </div>
 
       <div class="control">

@@ -31,12 +31,22 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.post('/newListing', upload.single('thefile'), function(req, res){
-  if (!req.file) {
+router.post('/newListing', upload.array('images'), function(req, res){
+  // if (!req.file) {
+  //   res.status(500).send('error: no file');
+  // }
+  var fileIds = [];
+  if(req.files){
+    // console.log(req.files);
+    for(i in req.files){
+      // console.log(req.files[i].id);
+      fileIds.push(req.files[i].id);
+    }
+  }else{
+    console.log("No images");
     res.status(500).send('error: no file');
   }
-  console.log(req.file);
-
+  console.log(fileIds);
   /*
   req.file:
     upload-file-form { fieldname: 'thefile',
@@ -60,8 +70,10 @@ router.post('/newListing', upload.single('thefile'), function(req, res){
   product.description = req.body.description;
   product.type = req.body.type;
   product.price = req.body.price;
-  product.fileId = req.file.id;
+  // product.fileId = req.file.id;
   product.category = req.body.category;
+  product.posted_by = req.body.user_id;
+  product.posted_at = Date.now();
 
   if(product.category == "Apartment"){
       var apartment = Object();
@@ -71,6 +83,7 @@ router.post('/newListing', upload.single('thefile'), function(req, res){
       apartment.pets = req.body.pets;
       apartment.parking = req.body.parking;
       apartment.ac = req.body.ac;
+      apartment.location = req.body.location;
       product.apartment = apartment;
   }
 
@@ -82,9 +95,14 @@ router.post('/newListing', upload.single('thefile'), function(req, res){
   }
 
   req.db.collection('products').insertOne(product, function(err, results){
-      console.log(results);
+      // console.log(results);
       res.send("Done");
   })
+});
+
+router.post('/coordinates', function(req, res){
+  var address = req.body.address;
+  res.send(address+" POPO");
 });
 
 module.exports = router;
