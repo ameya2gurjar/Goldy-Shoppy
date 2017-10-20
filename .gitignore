@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+# heroku local config
+.env
+
+>>>>>>> 9270622866f8d81650903491c977c33081dec8a5
 # Logs
 logs
 *.log

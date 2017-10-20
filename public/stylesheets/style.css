@@ -10,7 +10,6 @@ body {
 
 .header{
   text-align: center;
-  margin-top: 20px;
   font-size: 50px;
   font-style: normal;
   font-variant: normal;
@@ -18,11 +17,63 @@ body {
   line-height: 30px;
 }
 
+#requirementsList{
+  width: 330px;
+  height: 400px;
+  overflow-y: scroll;
+  border-width: 2px;
+  border:1px solid #d6d6d6;
+}
+
+#categoryBooks{
+  height: 250px;
+  border:1px solid #d6d6d6;
+  margin-left: 35px;
+  margin-bottom: 10px;
+}
+
+#categoryApt{
+  height: 250px;
+  border:1px solid #d6d6d6;
+  margin-left: 35px;
+  margin-bottom: 10px;
+
+}
+
+#miscellaneous{
+  height: 250px;
+  border:1px solid #d6d6d6;
+  margin-left: 35px;
+  margin-bottom: 10px;
+}
+
+
+
+.card{
+  width: 300px;
+  margin-left: 10px;
+}
+
+#itemCard{
+  width: 100px;
+}
+
 #postIt{
-  margin-top: 50px;
   margin-left: 10px;
   width: 300px;
   height: auto;
+}
+
+#addRequest{
+  text-align: center;
+  margin-bottom: 2px;
+  margin-left: 30px;
+}
+
+#itemBox{
+  border-style: ridge;
+  border-color: #cacecc;
+  background-color: #d4d4d4;
 }
 
 .card{
@@ -31,4 +82,8 @@ body {
 
 a {
   color: #00B7FF;
+}
+
+.upload-page #file-chooser-widget {
+  margin-bottom: 10px;
 }

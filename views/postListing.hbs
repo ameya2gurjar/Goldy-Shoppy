@@ -1,0 +1,13 @@
+<h1>Sell stuff page</h1>
+
+<form action="/postListing/newListing" method="post" enctype="multipart/form-data">
+  <input type="text" name="name" placeholder="Item Name"/><br>
+  <textarea name="description" placeholder="Description"></textarea><br>
+  <select name="type">
+    <option value="Sell">Sell</option>
+    <option value="Rent">Rent</option>
+  </select>
+  <input type="number" name="price" placeholder="price" step="0.01"/>
+  <input type="file" name="thefile" required/>
+  <input type="submit"/>
+</form>
