@@ -9,13 +9,18 @@ router.get('/:productId', function(req, res, next) {
   var productId = ObjectId(req.params.productId);
   req.db.collection('products').findOne({'_id':productId}, function(err, product){
     console.log(product);
+    if(product){
       req.db.collection('users').findOne({'_id':product.posted_by}, function(err, posted_by){
         res.render('product', {
           user: req.user,
           product: product,
-          posted_by: posted_by
+          posted_by: posted_by,
+          scripts: ['local.js']
         });
       });
+    }else{
+      res.render('error');
+    }
   });
 });
 
