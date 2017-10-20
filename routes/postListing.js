@@ -24,7 +24,7 @@ var upload = multer({ storage: multerGridFsStorage });
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // console.log(req.user);
+  // console.log(req.user.email);
   res.render('postListing', {
     scripts: ['postListing.js'],
     user: req.user
@@ -70,7 +70,7 @@ router.post('/newListing', upload.array('images'), function(req, res){
   product.description = req.body.description;
   product.type = req.body.type;
   product.price = req.body.price;
-  // product.fileId = req.file.id;
+  product.images = fileIds;
   product.category = req.body.category;
   product.posted_by = req.body.user_id;
   product.posted_at = Date.now();
@@ -97,7 +97,7 @@ router.post('/newListing', upload.array('images'), function(req, res){
   req.db.collection('products').insertOne(product, function(err, results){
       // console.log(results);
       res.send("Done");
-  })
+  });
 });
 
 router.post('/coordinates', function(req, res){
