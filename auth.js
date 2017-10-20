@@ -3,6 +3,7 @@ const debug = require('debug')('app:auth');
 const express = require('express');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
+var mongodb = require('mongodb');
 
 debug(`auth0: domain=${process.env.AUTH0_DOMAIN}`)
 
@@ -22,7 +23,6 @@ passport.use(new Auth0Strategy(
 // This can be used to keep a smaller payload
 passport.serializeUser(function(user, done) {
   // debug("auth0 serialize user: " + JSON.stringify(user, null, 4));
-  console.log(user);
   done(null, user);
 });
 
@@ -44,7 +44,7 @@ router.get(
     redirectUri: process.env.AUTH0_CALLBACK_URL,
     audience: 'https://' + process.env.AUTH0_DOMAIN + '/userinfo',
     responseType: 'code',
-    scope: 'openid profile'
+    scope: 'openid email profile'
   }),
   function(req, res) {
     res.redirect('/');
@@ -64,7 +64,15 @@ router.get(
     failureRedirect: '/'
   }),
   function(req, res) {
-    res.redirect(req.session.returnTo || '/');
+    console.log(req.user);
+    if(req.user.emails[0].value.indexOf('@umn.edu') != -1){
+      req.db.collection('users').update({'_id': req.user._json.sub},{'picture':req.user.picture, 'displayName': req.user.displayName, 'email': req.user.emails[0].value }, {upsert:true}, function(err, results){
+          res.redirect(req.session.returnTo || '/');
+      });
+    }else{
+      req.logout();
+      res.redirect('/notUMN');
+    }
   }
 );
 
