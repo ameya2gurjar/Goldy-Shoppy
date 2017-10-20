@@ -22,7 +22,7 @@ const db = require('./routes/db');
 const upload = require('./routes/upload');
 const postListing = require('./routes/postListing');
 const product = require('./routes/product');
-const product = require('./routes/addRequest');
+const addRequest = require('./routes/addRequest');
 
 const app = express();
 
