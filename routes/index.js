@@ -7,7 +7,7 @@ var mongodb = require('mongodb');
 router.get('/', function(req, res, next) {
   req.db.collection('requests').find().toArray(function(err, requests){
     console.log(requests);
-    req.db.collection('products').find().toArray(function(err, products){
+    req.db.collection('products').find().sort({posted_at: -1}).toArray(function(err, products){
       var apartments =[], books=[], stationery=[], bikes=[], others = [];
       var aptCounter = 0, bookCounter = 0, sCounter = 0, bikeCounter = 0, oCounter = 0;
       for(var i in products){
@@ -34,7 +34,7 @@ router.get('/', function(req, res, next) {
 
 
       res.render('index', { title: 'Go Goldy!', user: req.user, request :requests,
-      apartment : apartments, book:books, bike:bikes, other:others});
+      apartment : apartments, book:books, bike:bikes, stationery:stationery, other:others});
     });
   });
 });

@@ -32,6 +32,12 @@ body {
   margin-bottom: 10px;
 }
 
+#sellItemButton{
+  text-align: center;
+  margin-top: 20px;
+
+}
+
 
 .card{
   width: 300px;
@@ -98,4 +104,8 @@ float: left;
   position: relative;
 top: 50%;
 float: right;
+}
+
+#sellItem{
+    color:#616362;
 }
