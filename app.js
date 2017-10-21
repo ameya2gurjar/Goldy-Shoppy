@@ -63,11 +63,8 @@ app.use('/upload', upload);
 app.use('/addRequest', addRequest);
 app.use('/postListing', ensureLoggedIn('/login'), postListing);
 app.use('/product', product);
-<<<<<<< HEAD
 app.use('/user', ensureLoggedIn('/login'), user);
-=======
 app.use('/addComment', addComment);
->>>>>>> b7733ae813928ff6f7adcf7ea6f92544aac7079c
 
 app.get('/protected', ensureLoggedIn('/login'), function(req, res, next) {
   res.render('protected');
