@@ -84,7 +84,9 @@ router.post('/newListing', upload.array('images'), function(req, res){
       apartment.parking = req.body.parking;
       apartment.ac = req.body.ac;
       apartment.location = req.body.location;
+      apartment.address = req.body.address;
       product.apartment = apartment;
+
   }
 
   if(product.type == "Rent"){

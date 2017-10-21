@@ -16,13 +16,21 @@
     {{else}}
     <h1 class="title is-6">${{this.price}}</h1>
     {{/if}}
-    <p>{{this.posted_at}}</p>
+    <p>Posted: {{this.newTime}}</p>
 </div>
 <footer class="card-footer">
   <a href="/user/editListing/{{this._id}}" class="card-footer-item">Edit</a>
-  <a href="#" class="card-footer-item">Delete</a>
+  <a class="card-footer-item allListings-delete-btn">Delete</a>
 </footer>
 </div>
 {{/each}}
   </div>
+</div>
+
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <!-- Any other Bulma elements you want -->
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
 </div>
