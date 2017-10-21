@@ -19,34 +19,24 @@ body {
 
 #requirementsList{
   width: 330px;
-  height: 400px;
+  height: 500px;
   overflow-y: scroll;
   border-width: 2px;
   border:1px solid #d6d6d6;
 }
 
-#categoryBooks{
-  height: 250px;
-  border:1px solid #d6d6d6;
+#categories{
+  padding: 10px
+  border:2px solid #d6d6d6;
   margin-left: 35px;
   margin-bottom: 10px;
 }
 
-#categoryApt{
-  height: 250px;
-  border:1px solid #d6d6d6;
-  margin-left: 35px;
-  margin-bottom: 10px;
+#sellItemButton{
+  text-align: center;
+  margin-top: 20px;
 
 }
-
-#miscellaneous{
-  height: 250px;
-  border:1px solid #d6d6d6;
-  margin-left: 35px;
-  margin-bottom: 10px;
-}
-
 
 
 .card{
@@ -124,4 +114,8 @@ float: right;
   height: 2.2em;
      line-height: 1.1;
      overflow: hidden;
+   }
+
+#sellItem{
+    color:#616362;
 }
