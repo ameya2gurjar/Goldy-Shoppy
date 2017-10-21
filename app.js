@@ -23,6 +23,7 @@ const upload = require('./routes/upload');
 const postListing = require('./routes/postListing');
 const product = require('./routes/product');
 const addRequest = require('./routes/addRequest');
+const addComment = require('./routes/addComment');
 
 const app = express();
 
@@ -61,6 +62,7 @@ app.use('/upload', upload);
 app.use('/addRequest', addRequest);
 app.use('/postListing', ensureLoggedIn('/login'), postListing);
 app.use('/product', product);
+app.use('/addComment', addComment);
 
 app.get('/protected', ensureLoggedIn('/login'), function(req, res, next) {
   res.render('protected');

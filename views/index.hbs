@@ -14,17 +14,10 @@
         </header>
         <section class="modal-card-body">
           <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="abc" id="name">
-            </div>
-          </div>
-
-          <div class="field">
             <label class="label">Category</label>
             <div class="control">
-              <div class="select" id="category">
-                <select>
+              <div class="select">
+                <select id="category">
                   <option>Select category</option>
                   <option>Book</option>
                   <option>Furniture</option>
@@ -33,30 +26,28 @@
               </div>
             </div>
           </div>
-
           <div class="field">
             <label class="label">Requirement</label>
             <div class="control has-icons-left has-icons-right">
               <input class="input " type="text" placeholder="Name of the book, etc" id="requirement">
             </div>
           </div>
-
           <div class="field">
             <label class="label">Request message if any</label>
             <div class="control">
               <textarea class="textarea" placeholder="Textarea" id="requestMessage"></textarea>
             </div>
           </div>
-
         </section>
         <footer class="modal-card-foot">
           <button class="button is-success" id="saveRequest">Save changes</button>
         </footer>
       </div>
     </div>
+
     <div id="requirementsList">
       {{#each request}}
-      <div class="card">
+      <div class="card" postedBy={{this.name}}>
         <header class="card-header">
           <p class="card-header-title">Category - {{this.category}}
             <br>
@@ -70,67 +61,114 @@
           </div>
         </div>
         <footer class="card-footer">
-          <a href="#" class="card-footer-item" id="addComment">Comment</a>
-          <div class="modal commentForm" id="replyCommentForm">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-              <header class="modal-card-head">
-                <p class="modal-card-title">Comment</p>
-                <button class="delete" aria-label="close" id="closeCommentForm"></button>
-              </header>
-              <section class="modal-card-body">
-                <div class="control">
-                  <textarea class="textarea" placeholder="Textarea" id="commentMessage"></textarea>
-                </div>
-              </section>
-            </footer>
-          </div>
-          {{/each}}
-        </div>
+          <a href="#" class="card-footer-item addComment">Comment</a>
+        </footer>
       </div>
-      <div id="someProducts" class="column is-three-quarters">
-        <div id="categoryBooks" class="column">
-        <h1>Books</h1>
-        </div>
-        <div id="categoryApt" class="column">
-          <h1>Apartments</h1>
-          <div>
-            {{#each apartment}}
-            <div class="card itemCard">
-              <header class="card-header">
-                <p class="card-header-title">{{this.name}}</p>
-              </header>
-              <div class="card-content column is-one-quarter itemBox">
-                <div class="content">
-                  <p>Type:{{this.type}}</p>
-                  <p>Price:{{this.price}}</p>
-                </br>
-                </div>
-              </div>
-                <footer class="modal-card-foot">
-                  <a href="/product/{{this._id}}">View Product</a>
-                </footer>
-            </div>
-            {{/each}}
+      {{/each}}
+    </div>
+  </div>
+  <div class="modal commentForm" id="replyCommentForm">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Email</p>
+        <button class="delete" aria-label="close" id="closeCommentForm"></button>
+      </header>
+      <section class="modal-card-body">
+        <div class="field">
+          <label class="label">To</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input " type="text" id="sendMailTo" readonly>
           </div>
         </div>
-        <div id="miscellaneous" class="column">
-          <h1>Miscellaneous</h1>
+        <div class="control">
+          <label class="label">Send Reply</label>
+          <textarea class="textarea" placeholder="Textarea" id="commentMessage"></textarea>
         </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success" id="saveComment">Send Mail</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="someProducts" class="column is-three-quarters">
+    <div id="categories">
+      <h1>Books</h1>
+      <div class="columns">
+        {{#each book}}
+        <div class="card itemCard">
+          <header class="card-header">
+            <p class="card-header-title">{{this.name}}</p>
+          </header>
+          <figure class="image is-4by3">
+      <img src="/upload/view/{{this.displayImage}}" alt="Placeholder image">
+    </figure>
+          <div class="card-content column is-one-quarter itemBox">
+            <div class="content">
+              <p>Type:{{this.type}}</p>
+              <p>Price:{{this.price}}</p>
+            </br>
+          </div>
+        </div>
+        <footer class="modal-card-foot">
+          <a href="/product/{{this._id}}">View Product</a>
+        </footer>
       </div>
+      {{/each}}
+      </div>
+    </div>
+    <div id="categories">
+      <h1>Apartment</h1>
+      <div  class="columns">
+        {{#each apartment}}
+        <div class="card itemCard">
+          <header class="card-header">
+            <p class="card-header-title">{{this.name}}</p>
+          </header>
+          <div class="card-content column is-one-quarter itemBox">
+            <div class="content">
+              <p>Type:{{this.type}}</p>
+              <p>Price:{{this.price}}</p>
+            </br>
+          </div>
+        </div>
+        <footer class="modal-card-foot">
+          <a href="/product/{{this._id}}">View Product</a>
+        </footer>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <div  id="categories">
+    <h1>Stationery</h1>
+    <div class="columns">
+    </div>
+  </div>
+  <div  id="categories">
+    <h1>Bikes</h1>
+    <div class="columns">
+    </div>
+  </div>
+  <div id="categories">
+    <h1>Miscellaneous</h1>
+    <div class="columns">
     </div>
   </div>
 </div>
+</div>
+</div>
+</div>
 
 
-      <!-- <div class="index-page">
+<!-- <div class="index-page">
 
-      <h1>Demos:</h1>
-      <ul>
-      <!-- <li><a href="/db">db</a></li>
-      <li><a href="/upload">file upload</a></li>
-      <li><a href="/protected">protected page</a></li> -->
-      <!-- <li><a href="/postListing">postListing</a></li>
-    </ul>
+<h1>Demos:</h1>
+<ul>
+<!-- <li><a href="/db">db</a></li>
+<li><a href="/upload">file upload</a></li>
+<li><a href="/protected">protected page</a></li> -->
+<!-- <li><a href="/postListing">postListing</a></li>
+</ul>
 
-  </div> -->
+</div> -->
