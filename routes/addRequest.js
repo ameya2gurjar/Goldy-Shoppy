@@ -7,7 +7,7 @@ router.post('/', function(req, res){
       console.log(req.body);
 
       var request = Object();
-      request.name = req.body.name;
+      request.name = req.user.displayName;
       request.category = req.body.category;
       request.requirement = req.body.requirement;
       request.message = req.body.requestMessage;

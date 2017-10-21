@@ -24,6 +24,8 @@ const postListing = require('./routes/postListing');
 const search = require('./routes/search');
 const product = require('./routes/product');
 const addRequest = require('./routes/addRequest');
+const user = require('./routes/users');
+const addComment = require('./routes/addComment');
 
 const app = express();
 
@@ -63,6 +65,8 @@ app.use('/addRequest', addRequest);
 app.use('/postListing', ensureLoggedIn('/login'), postListing);
 app.use('/search', search);
 app.use('/product', product);
+app.use('/user', ensureLoggedIn('/login'), user);
+app.use('/addComment', addComment);
 
 app.get('/protected', ensureLoggedIn('/login'), function(req, res, next) {
   res.render('protected');

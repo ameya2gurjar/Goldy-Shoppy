@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var moment = require('moment');
 
 var mongodb = require('mongodb');
 
@@ -46,10 +47,9 @@ router.get('/', function(req, res, next) {
         for(var i in result){
             if(!!result[i].posted_at)
                 {
-                    utcMilliSeconds = parseInt(result[i].posted_at);
-                    console.log(utcMilliSeconds);
-                    result[i].posted_at = (String)(d.setUTCMilliseconds(utcMilliSeconds));
-                    console.log(result[i].posted_at);
+                    var m = moment(result[i].posted_at).fromNow();
+                    result[i].newTime = m;
+                    console.log(result[i].newTime);
                 } 
         }
 //        console.log(utcMilliSeconds);
@@ -66,5 +66,6 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
 
 
