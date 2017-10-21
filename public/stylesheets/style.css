@@ -106,12 +106,22 @@ background-repeat: round;
 
 .prev-icon{
   position: relative;
-top: 50%;
-float: left;
+  top: 50%;
+  float: left;
 }
 
 .next-icon{
   position: relative;
 top: 50%;
 float: right;
+}
+
+.allListingsImg{
+  margin: 0 !important;
+}
+
+.allListingsName{
+  height: 2.2em;
+     line-height: 1.1;
+     overflow: hidden;
 }
