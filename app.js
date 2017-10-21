@@ -22,6 +22,8 @@ const db = require('./routes/db');
 const upload = require('./routes/upload');
 const postListing = require('./routes/postListing');
 const search = require('./routes/search');
+const product = require('./routes/product');
+const addRequest = require('./routes/addRequest');
 
 const app = express();
 
@@ -57,11 +59,17 @@ app.use('/', index);
 app.use('/', auth.router);
 app.use('/db', db);
 app.use('/upload', upload);
+app.use('/addRequest', addRequest);
 app.use('/postListing', ensureLoggedIn('/login'), postListing);
 app.use('/search', search);
+app.use('/product', product);
 
 app.get('/protected', ensureLoggedIn('/login'), function(req, res, next) {
   res.render('protected');
+});
+
+app.get('/notUMN', function(req, res){
+  res.render('notUMN');
 });
 
 // catch 404 and forward to error handler

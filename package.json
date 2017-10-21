@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "nodemon": "nodemon ./bin/www",
-    "dev": "heroku local dev"
+    "dev": "heroku local dev",
+    "devLocal" : "npm local dev"
   },
   "dependencies": {
     "body-parser": "~1.17.1",

@@ -59,7 +59,8 @@ router.get('/', function(req, res, next) {
 //    console.log(result.images);
         res.render('search',{
         user: req.user,
-        result: result    
+        result: result,
+        sitem: sitem    
         });   
     }
 });
