@@ -1,7 +1,7 @@
 <div class="bg"></div>
 <div align="left" class="container">
     <form action="/search" method="get">
-    <div class="columns is-gapless">
+    <div class="columns is-gapless  is-mobile">
         <div class="field column is-narrow">
                 <div class="control">
                   <div class="select">
@@ -19,7 +19,7 @@
 
             <div class="column">
             <div class="searchbar">
-                <input class="input" type="text" placeholder="Search" name="sitem">
+                <input class="input" type="text" placeholder="Search" name="sitem" value="{{sitem}}">
         </div>
         </div>
         <div class="column is-narrow">
@@ -34,9 +34,9 @@
     </div>
     <div class="columns">
         <div class="column">
-            <p>Showing results for {{sitem}}</p>
+            <p>Showing results for <b>"{{sitem}}"</b></p>
         </div>
-        <div class="field columns is-1">
+        <div class="field columns is-1 is-mobile">
             <label class="label column">Sort By</label>
              <div class="control column">
                   <div class="select">

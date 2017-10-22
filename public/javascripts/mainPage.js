@@ -1,3 +1,23 @@
+$("#toggle-book").click(function(){
+  $('#book-content').toggle();
+});
+
+$("#toggle-apartment").click(function(){
+  $('#apartment-content').toggle();
+});
+
+$("#toggle-furniture").click(function(){
+  $('#furniture-content').toggle();
+});
+
+$("#toggle-bike").click(function(){
+  $('#bike-content').toggle();
+});
+
+$("#toggle-other").click(function(){
+  $('#other-content').toggle();
+});
+
 $("#addRequest").click(function(){
     $(".requestForm").addClass("is-active");
 });
