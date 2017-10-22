@@ -3,6 +3,18 @@ var isApartment = false;
 
 $(function() {
   console.log('postListing.js ready');
+
+  $('#fileUpload').change(function() {
+    var f = $('#fileUpload')[0].files;
+    var text = "";
+    for(var i = 0; i < f.length; i++){
+      console.log(i+" "+$('#fileUpload')[0].files[i].name)
+      text+= $('#fileUpload')[0].files[i].name+", ";
+    }
+    console.log(text);
+    $('#fileUploadLabel').html( text );
+  });
+
   $('#select-type').find(":selected").each(function () {
     // do something amazing here
     var selectedValue = $(this).val();

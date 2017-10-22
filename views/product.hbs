@@ -108,6 +108,38 @@
       </div>
       {{/if}}
 
+      <h2 class="subtitle">Comments:</h2>
+
+      {{#if product.comments}}
+
+        {{#each product.comments}}
+        <div class="productComment">
+          <img class="is-pulled-left" src="{{this.comment_by_pic}}" style="max-height: 25px;margin-right: 10px;">
+          <h6 class="title is-5" style="/*! margin-left: 5px; */margin-bottom: 1px;"><b>{{this.comment_by}}</b></h6>
+          <p style="margin-left: 40px;margin-bottom: 0;">{{this.comment_content}}</p>
+                     <p style="margin-left: 40px;"><b>{{this.newTime}}</b></p>
+        </div>
+          {{/each}}
+      {{else}}
+        <p>No comments</p>
+      {{/if}}
+
+
+      {{#if user}}
+      <div>
+      <input type="hidden" name="productId" value="{{product._id}}"/>
+      <input type="hidden" name="userName" value="{{user.displayName}}"/>
+      <input type="hidden" name="userId" value="{{user._json.sub}}"/>
+      <input type="hidden" name="userPic" value="{{user.picture}}"/>
+      <div class="field">
+      <div class="control">
+          <textarea class="textarea" name ="comment" placeholder="Comment..."></textarea>
+      </div>
+      </div>
+      <button class="button is-success" name="postComment">Post Comment</button>
+      </div>
+      {{/if}}
+
     </div>
   </div>
 </div>

@@ -19,4 +19,18 @@ $(function() {
     $('#images').css('background-image',url);
     }
 
+    $("button[name='postComment']").click(function(){
+      var comment = $('textarea[name="comment"]').val();
+      userid = $('input[name="userId"]').val();
+      username = $('input[name="userName"]').val();
+      userpic = $('input[name="userPic"]').val();
+      productId = $('input[name="productId"]').val();
+      if(!!comment){
+        $.post( "/product/comment", {productId:productId, userid: userid,username: username,userpic: userpic, comment:comment })
+      .done(function( data ) {
+          location.reload();
+      });
+      }
+    });
+
 });

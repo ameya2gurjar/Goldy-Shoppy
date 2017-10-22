@@ -88,6 +88,19 @@ router.post('/newListing', upload.array('images'), function(req, res){
       product.apartment = apartment;
 
   }
+  if(product.category == "Book"){
+    product.book = true;
+  }
+  if(product.category == "Furniture"){
+    product.furniture = true;
+  }
+  if(product.category == "Bike"){
+    product.bike = true;
+  }
+  if(product.category == "Other"){
+    product.other = true;
+  }
+
 
   if(product.type == "Rent"){
       var rent = Object();
