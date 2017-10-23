@@ -87,9 +87,9 @@ a {
 
 #images{
   max-width: 100%;
-height: 400px;
-background-size: contain;
-background-repeat: round;
+  height: 400px;
+  background-size: contain;
+  background-repeat: round;
 }
 
 .prev-icon{
@@ -100,8 +100,8 @@ background-repeat: round;
 
 .next-icon{
   position: relative;
-top: 50%;
-float: right;
+  top: 50%;
+  float: right;
 }
 
 .allListingsImg{
@@ -110,10 +110,34 @@ float: right;
 
 .allListingsName{
   height: 2.2em;
-     line-height: 1.1;
-     overflow: hidden;
-   }
+  line-height: 1.1;
+  overflow: hidden;
+}
 
-#sellItem{
-    color:#616362;
+
+#goToPosting{
+  margin-top: 20px;
+
+}
+
+#postListingPage{
+  color:#616362;
+}
+
+#editProfileHeader{
+  text-align: center;
+}
+
+#editProfileMainDiv{
+  width: 500px;
+  position: relative;
+}
+
+#profilePicture{
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+#saveEditedProfile{
+  margin: auto;
 }
