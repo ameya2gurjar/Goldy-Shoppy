@@ -11,13 +11,22 @@
   </head>
   <body>
 
+
     <nav class="navbar is-light">
       <div class="navber-brand">
         <a class="navbar-item title" href="/">Get Cool Name</a>
+
+        <button class="button navbar-burger" data-target="popo">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-      <div class="navbar-menu">
+      <div id="popo" class="navbar-menu">
         <div class="navbar-end">
           {{#if user}}
+
+          <a href="/postListing"  style="margin: auto;"><button class="button is-success">Post Listing</button></a>
             <div class="navbar-item has-dropdown is-hoverable">
     <a class="navbar-link">
       <span class="navbar-item">
@@ -57,7 +66,6 @@
     <div class="content">
       {{{body}}}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <link rel='stylesheet' href='/stylesheets/style.css' />
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
       <script type="text/javascript" src="/javascripts/mainPage.js"></script>
@@ -65,11 +73,36 @@
   </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATTpBUEZi5-hU-cCTlzAbThG0sVFszouU&callback=initMap">
-    <script src="/javascripts/local.js"></script>
-    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATTpBUEZi5-hU-cCTlzAbThG0sVFszouU&callback=initMap"></script>
     {{#each scripts}}
       <script src="/javascripts/{{this}}"></script>
     {{/each}}
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // Get all "navbar-burger" elements
+      var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      // Check if there are any navbar burgers
+      if ($navbarBurgers.length > 0) {
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach(function ($el) {
+          $el.addEventListener('click', function () {
+
+            // Get the target from the "data-target" attribute
+            var target = $el.dataset.target;
+            var $target = document.getElementById(target);
+
+            // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+            $el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+
+          });
+        });
+      }
+
+    });
+    </script>
   </body>
 </html>

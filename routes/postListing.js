@@ -72,7 +72,7 @@ router.post('/newListing', upload.array('images'), function(req, res){
   product.price = req.body.price;
   product.images = fileIds;
   product.category = req.body.category;
-  product.posted_by = {id:req.user._json.sub, name: req.user.displayName, picture: req.user.picture};
+  product.posted_by = {id:req.user._json.sub, name: req.user.displayName, picture: req.user.picture, email: req.user.emails[0].value};
   product.posted_at = Date.now();
 
   if(product.category == "Apartment"){

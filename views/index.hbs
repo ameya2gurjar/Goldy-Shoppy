@@ -39,16 +39,45 @@
   <div id="indexMainDiv" class="columns">
     <div id="someProducts" class="column is-three-quarters">
 
-    <div class="categories">
+      <div class="categories">
+        <div>
+          <h1 class="is-pulled-left">Apartments</h1><a href="/search?category=Apartment">(See all)</a>
+          <span class="next-icon icon is-large" id="toggle-apartment">
+
+            <i class="fa fa-2x fa-chevron-down "></i>
+          </span>
+        </div>
+        <div class="columns" id="apartment-content" style="clear:both">
+          {{#each apartment}}
+          <div class="card itemCard">
+            <header class="card-header">
+              <p class="card-header-title">{{this.name}}</p>
+            </header>
+            <div class="card-content column is-one-quarter itemBox">
+              <div class="content">
+                <p>Type:{{this.type}}</p>
+                <p>Price:{{this.price}}</p>
+              </br>
+            </div>
+          </div>
+          <footer class="modal-card-foot">
+            <a href="/product/{{this._id}}">View Product</a>
+          </footer>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    <div  class="categories">
+      <hr>
       <div>
-        <h1 class="is-pulled-left">Apartments</h1><a href="/search?category=Apartment">(See all)</a>
-        <span class="next-icon icon is-large" id="toggle-apartment">
+        <h1 class="is-pulled-left">Furniture</h1><a href="/search?category=Furniture">(See all)</a>
+        <span class="next-icon icon is-large" id="toggle-furniture">
 
           <i class="fa fa-2x fa-chevron-down "></i>
         </span>
       </div>
-      <div class="columns" id="apartment-content" style="clear:both">
-        {{#each apartment}}
+      <div class="columns" id="furniture-content" style="clear:both">
+        {{#each furniture}}
         <div class="card itemCard">
           <header class="card-header">
             <p class="card-header-title">{{this.name}}</p>
@@ -67,26 +96,31 @@
       {{/each}}
     </div>
   </div>
-  <div  class="categories">
+
+  <div class="categories">
     <hr>
     <div>
-      <h1 class="is-pulled-left">Furniture</h1><a href="/search?category=Furniture">(See all)</a>
-      <span class="next-icon icon is-large" id="toggle-furniture">
+      <h1 class="is-pulled-left">Books</h1><a href="/search?category=Book">(See all)</a>
+      <span class="next-icon icon is-large" id="toggle-book">
 
         <i class="fa fa-2x fa-chevron-down "></i>
       </span>
     </div>
-    <div class="columns" id="furniture-content" style="clear:both">
-      {{#each furniture}}
+    <div class="columns" id="book-content" style="clear:both">
+      {{#each book}}
       <div class="card itemCard">
         <header class="card-header">
           <p class="card-header-title">{{this.name}}</p>
         </header>
+        <figure class="image is-4by3">
+          <img src="/upload/view/{{this.displayImage}}" alt="Placeholder image">
+        </figure>
         <div class="card-content column is-one-quarter itemBox">
           <div class="content">
             <p>Type:{{this.type}}</p>
             <p>Price:{{this.price}}</p>
           </br>
+
         </div>
       </div>
       <footer class="modal-card-foot">
@@ -96,40 +130,6 @@
     {{/each}}
   </div>
 </div>
-
-      <div class="categories">
-        <hr>
-        <div>
-          <h1 class="is-pulled-left">Books</h1><a href="/search?category=Book">(See all)</a>
-          <span class="next-icon icon is-large" id="toggle-book">
-
-            <i class="fa fa-2x fa-chevron-down "></i>
-          </span>
-        </div>
-        <div class="columns" id="book-content" style="clear:both">
-          {{#each book}}
-          <div class="card itemCard">
-            <header class="card-header">
-              <p class="card-header-title">{{this.name}}</p>
-            </header>
-            <figure class="image is-4by3">
-              <img src="/upload/view/{{this.displayImage}}" alt="Placeholder image">
-            </figure>
-            <div class="card-content column is-one-quarter itemBox">
-              <div class="content">
-                <p>Type:{{this.type}}</p>
-                <p>Price:{{this.price}}</p>
-              </br>
-
-            </div>
-          </div>
-          <footer class="modal-card-foot">
-            <a href="/product/{{this._id}}">View Product</a>
-          </footer>
-        </div>
-        {{/each}}
-      </div>
-    </div>
 
 <div  class="categories">
   <hr>
@@ -192,8 +192,9 @@
 </div>
 
 <div id="postIt" class="column is-one-quarter">
+  <h1 class="title">User Requests:</h1>
   {{#if user}}
-  <input class="button" type="submit" value="Post Request" id="addRequest">
+  <button class="button is-success" type="submit" id="addRequest">Post Request</button>
   {{/if}}
   <div class="modal requestForm" id="postItForm">
     <div class="modal-background"></div>

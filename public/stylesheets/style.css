@@ -50,12 +50,12 @@ body {
   margin-left: 10px;
   width: 300px;
   height: auto;
+  padding-top: 45px;
 }
 
 #addRequest{
   text-align: center;
-  margin-bottom: 2px;
-  margin-left: 30px;
+  margin-bottom: 10px;
 }
 
 #itemBox{
@@ -130,4 +130,10 @@ margin: 10px 0;
 .categories{
   margin-top: 30px;
   clear: both;
+}
+
+.commentBox{
+  max-height:400px ;
+overflow: scroll;
+margin-bottom: 20px;
 }

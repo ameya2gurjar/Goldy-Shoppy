@@ -33,4 +33,22 @@ $(function() {
       }
     });
 
+    $('#contactSellerBtn').click(function(){
+      $('#contactSeller').addClass('is-active');
+    });
+
+    $('#sendEmail').click(function(){
+      var sub = $('#emailSubject').val();
+      var text = $('#emailText').val();
+      var productId = $('input[name="productId"]').val();
+
+      if(!!sub && !!text){
+        $.post( "/product/contactSeller", {productId:productId, subject: sub,text: text})
+      .done(function( data ) {
+        $('#contactSeller').removeClass('is-active');
+      });
+    }else{
+      alert('Fill out all fields');
+    }
+    });
 });

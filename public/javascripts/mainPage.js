@@ -1,21 +1,26 @@
 $("#toggle-book").click(function(){
   $('#book-content').toggle();
+  $(this).children('i').toggleClass("fa-chevron-down fa-chevron-up");
 });
 
 $("#toggle-apartment").click(function(){
   $('#apartment-content').toggle();
+  $(this).children('i').toggleClass("fa-chevron-down fa-chevron-up");
 });
 
 $("#toggle-furniture").click(function(){
   $('#furniture-content').toggle();
+  $(this).children('i').toggleClass("fa-chevron-down fa-chevron-up");
 });
 
 $("#toggle-bike").click(function(){
   $('#bike-content').toggle();
+  $(this).children('i').toggleClass("fa-chevron-down fa-chevron-up");
 });
 
 $("#toggle-other").click(function(){
   $('#other-content').toggle();
+  $(this).children('i').toggleClass("fa-chevron-down fa-chevron-up");
 });
 
 $("#addRequest").click(function(){

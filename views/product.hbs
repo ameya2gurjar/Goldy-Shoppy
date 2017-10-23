@@ -50,6 +50,7 @@
         <h2>${{product.price}}</h2>
       {{/if}}
 
+
       <div class="columns">
         <div class="column">
           <p>Posted by: {{product.posted_by.name}}</p>
@@ -59,6 +60,36 @@
           <p id="posted_at">Posted : {{product.newTime}}</p>
         </div>
       </div>
+
+{{#if user}}
+      <button class="button is-success" id="contactSellerBtn">Contact Seller</button>
+
+      <div class="modal commentForm" id="contactSeller">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Contact Seller</p>
+            <button class="delete" aria-label="close" id="closeCommentForm"></button>
+          </header>
+          <section class="modal-card-body">
+            <div class="field">
+              <label class="label">Subject:</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input " type="text" id="emailSubject" value="Re: {{product.name}}">
+              </div>
+            </div>
+            <div class="control">
+              <label class="label">Message:</label>
+              <textarea class="textarea" placeholder="Textarea" id="emailText">Hi {{product.posted_by.name}} I saw your listing for {{product.name}} on PUT SITE NAME HERE and was really interested in it.</textarea>
+            </div>
+          </section>
+          <footer class="modal-card-foot">
+            <input type="hidden" name="productId" value="{{product._id}}"/>
+            <button class="button is-success" id="sendEmail">Send</button>
+          </footer>
+        </div>
+      </div>
+      {{/if}}
 
       <h2 class="subtitle">Description:</h2>
       <p>{{product.description}}</p>
@@ -111,7 +142,7 @@
       <h2 class="subtitle">Comments:</h2>
 
       {{#if product.comments}}
-
+      <div class="commentBox">
         {{#each product.comments}}
         <div class="productComment">
           <img class="is-pulled-left" src="{{this.comment_by_pic}}" style="max-height: 25px;margin-right: 10px;">
@@ -120,6 +151,7 @@
                      <p style="margin-left: 40px;"><b>{{this.newTime}}</b></p>
         </div>
           {{/each}}
+        </div>
       {{else}}
         <p>No comments</p>
       {{/if}}
