@@ -72,7 +72,7 @@ router.post('/newListing', upload.array('images'), function(req, res){
   product.price = req.body.price;
   product.images = fileIds;
   product.category = req.body.category;
-  product.posted_by = {id:req.user._json.sub, name: req.user.displayName, picture: req.user.picture};
+  product.posted_by = {id:req.user._json.sub, name: req.user.displayName, picture: req.user.picture, email: req.user.emails[0].value};
   product.posted_at = Date.now();
 
   if(product.category == "Apartment"){
@@ -84,8 +84,23 @@ router.post('/newListing', upload.array('images'), function(req, res){
       apartment.parking = req.body.parking;
       apartment.ac = req.body.ac;
       apartment.location = req.body.location;
+      apartment.address = req.body.address;
       product.apartment = apartment;
+
   }
+  if(product.category == "Book"){
+    product.book = true;
+  }
+  if(product.category == "Furniture"){
+    product.furniture = true;
+  }
+  if(product.category == "Bike"){
+    product.bike = true;
+  }
+  if(product.category == "Other"){
+    product.other = true;
+  }
+
 
   if(product.type == "Rent"){
       var rent = Object();
