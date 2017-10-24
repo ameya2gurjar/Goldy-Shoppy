@@ -37,7 +37,17 @@
             <p>Showing results for <b>"{{sitem}}"</b></p>
         </div>
         <div class="field columns is-1 is-mobile">
-            <label class="label column">Sort By</label>
+            <label class="label column">Type:</label>
+            <div class="control column">
+                  <div class="select">
+                    <select id="select-sell-type" name="SellType">
+                      <option value="All">All</option>    
+                      <option value="Sell">Sell</option>
+                      <option value="Rent">Rent</option>
+                    </select>
+                  </div>
+                </div>
+            <label class="label column">Sort:</label>
              <div class="control column">
                   <div class="select">
                     <select id="select-sort-type" name="SortBy">

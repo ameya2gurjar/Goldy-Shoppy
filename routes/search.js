@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
     var sitem=req.query.sitem;    
     var category=req.query.category;
     var sortBy=req.query.SortBy;
+    var sellType=req.query.SellType;
 
     if(sortBy=='priceA')
          sortBy={ price : 1 };
@@ -28,7 +29,15 @@ router.get('/', function(req, res, next) {
             searchBy = { $text: { $search: sitem  } };
         }
         else{
-            searchBy= {$and: [{ $text: { $search: sitem  } },{category:category} ] };
+            if(sellType=="All")
+                {
+                    searchBy= {$and: [{ $text: { $search: sitem  } },{category:category} ] };
+                }
+            else{
+                searchBy= {$and:[{$and: [{ $text: { $search: sitem  } },{category:category}]},{type: sellType} ] };
+            }
+            
+            
         }
     }
     
@@ -58,6 +67,7 @@ router.get('/', function(req, res, next) {
 //        console.log(result.posted_at);
 //    console.log(result.images);
         res.render('search',{
+        scripts: ['search.js'],    
         user: req.user,
         result: result,
         sitem: sitem    
