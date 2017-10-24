@@ -30,11 +30,11 @@ router.get('/', function(req, res, next) {
             others[oCounter++] = products[i];
         }
       }
-      console.log(apartments);
+      // console.log(apartments);
 
 
       res.render('index', { title: 'Go Goldy!', user: req.user, request :requests,
-      apartment : apartments, book:books, bike:bikes, furniture:furniture, other:others});
+      apartment : apartments, book:books, bike:bikes, furniture:furniture, other:others, scripts:['mainPage.js']});
     });
   });
 });

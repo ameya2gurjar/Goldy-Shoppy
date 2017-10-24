@@ -33,7 +33,11 @@ $("#closeRequestForm").click(function(){
 
 $(".addComment").click(function(){
    $(".commentForm").addClass("is-active");
-   $("#sendMailTo").val($(this).closest(".card").attr("postedBy"));
+  //  $("#sendMailTo").val($(this).closest(".card").attr("postedBy"));
+   $("#buyer").html("Send Email to: "+ $(this).closest(".card").find('input[name="postedBy"]').val());
+   $("#subject").val("Re: "+$(this).closest(".card").find('input[name="item"]').val());
+   $("#commentMessage").val("Hi I saw your request for: "+$(this).closest(".card").find('input[name="item"]').val() +". I have something similar if you are interested. Do let me know.");
+   $("#commentEmail").val($(this).closest(".card").find('input[name="email"]').val());
 });
 
 $("#closeCommentForm").click(function(){
@@ -79,34 +83,28 @@ console.log($('#name').val());
 
   });
 
+
+
   $('#saveComment').click(function(e) {
     console.log("Mein aya");
       // how to select the file itself
       $('#errorDiv').css('display', 'none');
 
-      var request = Object();
-      request.comment = $('#commentMessage').val();
+      var data = Object();
+      data.subject = $('#subject').val();
+      data.message =  $('#commentMessage').val();
+      data.email = $('#commentEmail').val();
 
-      console.log($('#name').val())
-      console.log(request);
+      console.log(data);
 
 
       $.ajax({
-        url: '/addComment',
-        data: request,
+        url: '/product/replyRequest',
+        data: data,
         type: 'POST',
         success: function(data) {
           console.log('data', data);
-          if(!!data.Error){
-            $('#errorDiv').css('display', 'inline-block');
-            $('#errorText').html(data.Error);
-            // alert(data.Error);
-          }else{
-            $(".requestForm").removeClass("is-active");
-            window.location = "/";
-          }
-          $('#ajaxResponse').html(JSON.stringify(data));
-
+          location.reload();
         }
       });
 

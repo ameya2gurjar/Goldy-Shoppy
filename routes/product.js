@@ -61,6 +61,16 @@ router.post('/contactSeller', function(req, res){
   });
 });
 
+router.post('/replyRequest', function(req, res){
+  var email = req.body.email;
+  var msgFrom = req.user.emails[0].value;
+  var subject = req.body.subject;
+  var text = "<h3>"+req.user.displayName+" replied to your Request</h3>"+ req.body.message;
+
+sendEmail({sub: subject, text: text, from: msgFrom, to: email});
+res.status(200).send('success');
+});
+
 function sendEmail(data){
   var transporter = nodemailer.createTransport({
     service: 'gmail',
