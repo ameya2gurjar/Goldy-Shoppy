@@ -68,4 +68,22 @@ router.post('/deleteListing', function(req, res){
     });
 });
 
+router.get('/editProfile', function(req, res){
+  // console.log(req.user._json.sub);
+      req.db.collection('users').findOne({'_id': req.user._json.sub}, function(err, result){
+      res.render('editProfile', {user: req.user,  result:result, scripts:['profile.js']});
+    });
+  });
+
+router.post('/editProfile', function(req, res){
+    // console.log(req.user._json.sub);
+console.log(req.body);
+        req.db.collection('users').updateOne({_id:req.user._json.sub}, {$set:{displayName:req.body.displayName,
+           email:req.body.email, contactNumber:req.body.contactNumber}}, function(err, result){
+             console.log(result);
+        res.send('cool');
+      });
+
+    });
+
 module.exports = router;
