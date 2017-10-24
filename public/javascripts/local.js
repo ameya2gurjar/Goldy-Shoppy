@@ -51,4 +51,12 @@ $(function() {
       alert('Fill out all fields');
     }
     });
+
+    $("#closeRequestForm").click(function(){
+        $(".requestForm").removeClass("is-active");
+    });
+
+    $("#closeCommentForm").click(function(){
+        $(".commentForm").removeClass("is-active");
+    });
 });

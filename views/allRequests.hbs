@@ -1,27 +1,18 @@
 <div class="container">
   <div class="columns is-multiline">
-{{#each products}}
+{{#each requests}}
 <div class="card">
-<div class="card-image">
-  <figure class="image is-4by3 allListingsImg">
-    <img src="/upload/view/{{this.dispImg}}">
-  </figure>
-</div>
 <div class="card-content">
   <input type="hidden" name="id" value="{{this._id}}"/>
   <div class="allListingsName">
-    <h1 class="title is-4">{{this.name}}</h1>
+    <h1 class="title is-4">{{this.requirement}}</h1>
   </div>
-    {{#if this.rent}}
-    <h1 class="title is-6">${{this.price}} /month</h1>
-    {{else}}
-    <h1 class="title is-6">${{this.price}}</h1>
-    {{/if}}
-    <p>Posted: {{this.newTime}}</p>
+  <hr>
+    <p><b>Category:</b> {{this.category}}</p>
+    <p>{{this.message}}</p>
+    <p><b>Requested:</b> {{this.newTime}}</p>
 </div>
 <footer class="card-footer">
-  <a href="/product/{{this._id}}" class="card-footer-item allListings-delete-btn">View</a>
-  <a href="/user/editListing/{{this._id}}" class="card-footer-item">Edit</a>
   <a class="card-footer-item allListings-delete-btn">Delete</a>
 </footer>
 </div>
@@ -42,7 +33,7 @@
     </section>
     <footer class="modal-card-foot">
       <button class="button" id="cancel">Cancel</button>
-      <button class="button is-danger" id="deleteListing">Delete</button>
+      <button class="button is-danger" id="delete">Delete</button>
     </footer>
   </div>
 </div>
