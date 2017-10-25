@@ -181,7 +181,14 @@ margin-bottom: 20px;
 .itemsContainer {
     float:left;
     position:relative
+}
 
-    #photoUpload{
-      margin-left: 10px;
-    }
+#photoUpload{
+  margin-left: 10px;
+}
+
+.cancel-button{
+    color: white
+}
+
+
