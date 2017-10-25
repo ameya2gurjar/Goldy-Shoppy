@@ -161,3 +161,25 @@ margin: 10px 0;
 overflow: scroll;
 margin-bottom: 20px;
 }
+
+.edit_prod_image:hover{
+    opacity: 0.5;
+}
+
+.itemsContainer:hover .red-cross{display:block}
+.red-cross{
+  position : absolute;
+    display:none;
+    top:40%; 
+    width:40px;
+    margin:0 auto; left:0px;
+    right:0px;
+    z-index:100;
+    opacity: 0.7;
+}
+
+.itemsContainer { 
+    float:left;
+    position:relative
+
+

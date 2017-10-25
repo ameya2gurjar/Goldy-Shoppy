@@ -26,6 +26,7 @@ const product = require('./routes/product');
 const addRequest = require('./routes/addRequest');
 const user = require('./routes/users');
 const addComment = require('./routes/addComment');
+const editListing = require('./routes/editListing');
 
 const app = express();
 
@@ -67,6 +68,7 @@ app.use('/search', search);
 app.use('/product', product);
 app.use('/user', ensureLoggedIn('/login'), user);
 app.use('/addComment', addComment);
+app.use('/editListing', editListing);
 
 app.get('/protected', ensureLoggedIn('/login'), function(req, res, next) {
   res.render('protected');
