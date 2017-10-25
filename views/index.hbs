@@ -95,10 +95,12 @@
           <div class="allListingsName">
             <h1 class="title is-5"><b>{{this.name}}</b></h1>
           </div>
-
-            <h1 class="title is-6">${{this.price}} /month</h1>
-
-            <h6>Posted:{{this.newTime}}</h6>
+          {{#if this.rent}}
+          <h1 class="title is-6">${{this.price}} /month</h1>
+          {{else}}
+          <h1 class="title is-6">${{this.price}}</h1>
+          {{/if}}
+          <h6>Posted:{{this.newTime}}</h6>
         </div>
         <footer class="card-footer">
           <a href="/product/{{this._id}}" class="card-footer-item">View Product</a>
@@ -130,10 +132,12 @@
         <div class="allListingsName">
           <h1 class="title is-5"><b>{{this.name}}</b></h1>
         </div>
-
-          <h1 class="title is-6">${{this.price}} /month</h1>
-
-          <h6>Posted:{{this.newTime}}</h6>
+        {{#if this.rent}}
+        <h1 class="title is-6">${{this.price}} /month</h1>
+        {{else}}
+        <h1 class="title is-6">${{this.price}}</h1>
+        {{/if}}
+        <h6>Posted:{{this.newTime}}</h6>
       </div>
       <footer class="card-footer">
         <a href="/product/{{this._id}}" class="card-footer-item">View Product</a>
@@ -165,10 +169,12 @@
       <div class="allListingsName">
         <h1 class="title is-5"><b>{{this.name}}</b></h1>
       </div>
-
-        <h1 class="title is-6">${{this.price}} /month</h1>
-
-        <h6>Posted:{{this.newTime}}</h6>
+      {{#if this.rent}}
+      <h1 class="title is-6">${{this.price}} /month</h1>
+      {{else}}
+      <h1 class="title is-6">${{this.price}}</h1>
+      {{/if}}
+      <h6>Posted:{{this.newTime}}</h6>
     </div>
     <footer class="card-footer">
       <a href="/product/{{this._id}}" class="card-footer-item">View Product</a>
@@ -199,10 +205,12 @@
       <div class="allListingsName">
         <h1 class="title is-5"><b>{{this.name}}</b></h1>
       </div>
-
-        <h1 class="title is-6">${{this.price}} /month</h1>
-
-        <h6>Posted:{{this.newTime}}</h6>
+      {{#if this.rent}}
+      <h1 class="title is-6">${{this.price}} /month</h1>
+      {{else}}
+      <h1 class="title is-6">${{this.price}}</h1>
+      {{/if}}
+      <h6>Posted:{{this.newTime}}</h6>
     </div>
     <footer class="card-footer">
       <a href="/product/{{this._id}}" class="card-footer-item">View Product</a>
@@ -276,7 +284,7 @@
       </header>
       <div class="card-content">
         <div class="content">
-          <p>{{this.requirement}}</p>
+          <h3>{{this.requirement}}</h3>
           <p>{{this.message}}</p>
         </div>
       </div>

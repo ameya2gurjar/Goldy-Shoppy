@@ -50,7 +50,7 @@ router.get('/allListings', function(req, res){
 router.get('/editListing/:productId', function(req, res){
   // console.log(req.user._json.sub);
   var productId = ObjectId(req.params.productId);
-  
+
   req.db.collection('products').findOne({'_id':productId}, function(err, product){
 //    console.log(product);
       res.render('editListing',{user: req.user, product: product, scripts: ['postListing.js', 'editListing.js']});
@@ -65,7 +65,7 @@ router.post('/editListing', function(req, res){
     prod.category = req.body.category;
     prod.type = req.body.type;
     prod.price = req.body.price;
-    
+
     if(prod.category == "Apartment"){
       var apartment = Object();
       apartment.beds = req.body.beds;
@@ -145,7 +145,7 @@ router.post('/editProfile', upload.single('profileImage'), function(req, res){
   req.db.collection('users').updateOne({_id:req.user._json.sub}, {$set:{displayName:req.body.displayName,
     email:req.body.email, contactNumber:req.body.contactNumber, picture : req.file}}, function(err, result){
       console.log(result);
-      res.send('cool');
+
     });
 
   });
