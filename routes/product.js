@@ -18,6 +18,7 @@ router.get('/:productId', function(req, res, next) {
         var t =moment(product.comments[i].comment_time).fromNow();
         product.comments[i].newTime = t;
       }
+      console.log(product);
         res.render('product', {
           user: req.user,
           product: product,

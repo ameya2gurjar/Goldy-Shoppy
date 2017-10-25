@@ -110,8 +110,8 @@ router.post('/newListing', upload.array('images'), function(req, res){
   }
 
   req.db.collection('products').insertOne(product, function(err, results){
-      // console.log(results);
-      res.send("Done");
+      console.log(results);
+      res.redirect('/user/allListings');
   });
 });
 

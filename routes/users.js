@@ -50,14 +50,16 @@ router.get('/allListings', function(req, res){
 router.get('/editListing/:productId', function(req, res){
   // console.log(req.user._json.sub);
   var productId = ObjectId(req.params.productId);
-  
+
   req.db.collection('products').findOne({'_id':productId}, function(err, product){
-//    console.log(product);
+   console.log(product);
       res.render('editListing',{user: req.user, product: product, scripts: ['postListing.js', 'editListing.js']});
   });
 });
 
 router.post('/editListing', function(req, res){
+  // console.log(req.body.id);
+  // res.send('data');
     var productId = ObjectId(req.body.id);
     var prod = Object();
     prod.name = req.body.name;
@@ -65,7 +67,9 @@ router.post('/editListing', function(req, res){
     prod.category = req.body.category;
     prod.type = req.body.type;
     prod.price = req.body.price;
-    
+    prod.posted_by = {id:req.user._json.sub, name: req.user.displayName, picture: req.user.picture, email: req.user.emails[0].value};
+    prod.posted_at = Date.now();
+
     if(prod.category == "Apartment"){
       var apartment = Object();
       apartment.beds = req.body.beds;
@@ -75,6 +79,7 @@ router.post('/editListing', function(req, res){
       apartment.parking = req.body.parking;
       apartment.ac = req.body.ac;
       apartment.address = req.body.address;
+      apartment.location = req.body.location;
       prod.apartment = apartment;
 
   }
@@ -98,13 +103,28 @@ router.post('/editListing', function(req, res){
       rent.end = req.body.to_date;
       prod.rent = rent;
   }
-    console.log(prod);
-  req.db.collection('products').updateOne({'_id':productId},{$set: {prod}}, function(err, results){
+
+  req.db.collection('products').findOne({'_id':productId}, function(err, results){
      console.log(results);
-      res.send("Done");
+     var images = results.images;
+     prod.images= images;
+     prod.comments = results.comments;
+     req.db.collection('products').deleteOne({'_id':productId}, function(err, results){
+       req.db.collection('products').insertOne(prod, function(err, results){
+           console.log(results);
+           res.redirect('/user/allListings');
+       });
+     });
+      // res.send("Done");
   });
-    console.log(req.body.name);
-    console.log(req.body.description);
+
+    // console.log(prod);
+  // req.db.collection('products').updateOne({'_id':productId},prod, function(err, results){
+  //    console.log(results);
+  //     res.send("Done");
+  // });
+    // console.log(req.body.name);
+    // console.log(req.body.description);
 });
 
 router.post('/deleteRequest', function(req, res){
