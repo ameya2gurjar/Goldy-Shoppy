@@ -89,6 +89,9 @@
           <header class="card-header">
             <p class="card-header-title">{{this.name}}</p>
           </header>
+          <figure class="image is-4by3">
+            <img src="/upload/view/{{this.displayImage}}" alt="Oops!No image found!">
+          </figure>
           <div class="card-content column is-one-quarter itemBox">
             <div class="content">
               <p>Type:{{this.type}}</p>
@@ -120,7 +123,7 @@
           <p class="card-header-title">{{this.name}}</p>
         </header>
         <figure class="image is-4by3">
-          <img src="/upload/view/{{this.displayImage}}" alt="Placeholder image">
+          <img src="/upload/view/{{this.displayImage}}" alt="Oops!No image found!">
         </figure>
         <div class="card-content column is-one-quarter itemBox">
           <div class="content">
@@ -153,6 +156,9 @@
       <header class="card-header">
         <p class="card-header-title">{{this.name}}</p>
       </header>
+      <figure class="image is-4by3">
+        <img src="/upload/view/{{this.displayImage}}" alt="Oops!No image found!">
+      </figure>
       <div class="card-content column is-one-quarter itemBox">
         <div class="content">
           <p>Type:{{this.type}}</p>
@@ -182,6 +188,9 @@
       <header class="card-header">
         <p class="card-header-title">{{this.name}}</p>
       </header>
+      <figure class="image is-4by3">
+        <img src="/upload/view/{{this.displayImage}}" alt="Oops!No image found!">
+      </figure>
       <div class="card-content column is-one-quarter itemBox">
         <div class="content">
           <p>Type:{{this.type}}</p>
@@ -199,7 +208,7 @@
 </div>
 
 <div id="postIt" class="column is-one-quarter">
-  <h1 class="title">User Requests:</h1>
+  <h1 class="title">Post a request!</h1>
   {{#if user}}
   <button class="button is-success" type="submit" id="addRequest">Post Request</button>
   {{/if}}
@@ -210,6 +219,7 @@
         <p class="modal-card-title">Add request</p>
         <button class="delete" aria-label="close" id="closeRequestForm"></button>
       </header>
+
       <section class="modal-card-body">
         <div class="field">
           <label class="label">Category</label>
@@ -262,9 +272,11 @@
           <p>{{this.message}}</p>
         </div>
       </div>
+      {{#if user}}
       <footer class="card-footer">
         <a href="#" class="card-footer-item addComment">Comment</a>
       </footer>
+      {{/if}}
     </div>
     {{/each}}
   </div>
