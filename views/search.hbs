@@ -1,3 +1,4 @@
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATTpBUEZi5-hU-cCTlzAbThG0sVFszouU"></script>
 <div class="bg"></div>
 <div align="left" class="container">
     <form action="/search" method="get">
@@ -34,14 +35,16 @@
     </div>
     <div class="columns">
         <div class="column">
+          {{#if sitem}}
             <p>Showing results for <b>"{{sitem}}"</b></p>
+            {{/if}}
         </div>
         <div class="field columns is-1 is-mobile">
             <label class="label column">Type:</label>
             <div class="control column">
                   <div class="select">
                     <select id="select-sell-type" name="SellType">
-                      <option value="All">All</option>    
+                      <option value="All">All</option>
                       <option value="Sell">Sell</option>
                       <option value="Rent">Rent</option>
                     </select>
@@ -61,37 +64,39 @@
         </div>
     </div>
     </form>
+<input type="hidden" name="cat" value="{{category}}"/>
+      <div id="map" style="margin-top: 20px; display: none"></div>
 
 <div align="center" class="resultcard columns is-multiline">
 {{#each result}}
-     <div class="card">
-         <p class="title is-4">{{this.name}}</p>
-  <div class="card-image">
-    <figure class="image is-4by3">
-      <img src="/upload/view/{{this.img}}">
-    </figure>
-  </div>
-    <p>Price: {{this.price}}</p>
-  <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-        <figure class="image is-48x48">
-          <img src="{{this.posted_by.picture}}">
-        </figure>
-      </div>
-      <div class="media-content">
-        <p class="title is-7">Posted By: {{this.posted_by.name}}</p>
-      </div>
-    </div>
 
-    <div class="content">
-      <time datetime="2016-1-1">{{this.newTime}}</time>
-    </div>
+{{#if this.apartment}}
+  <input type="hidden" value="{{this.apartment.location}}" class="apartment-location-for-map"/>
+  <input type="hidden" value="{{this._id}}" class="apartment-id-for-map"/>
+  <input type="hidden" value="{{this.name}}" class="apartment-name-for-map"/>
+  <input type="hidden" value="{{this.img}}" class="apartment-img-for-map"/>
+{{/if}}
+<div class="card">
+<div class="card-image">
+  <figure class="image is-4by3 allListingsImg">
+    <img src="/upload/view/{{this.img}}">
+  </figure>
+</div>
+<div class="card-content">
+  <input type="hidden" name="id" value="{{this._id}}"/>
+  <div class="allListingsName">
+    <h1 class="title is-4">{{this.name}}</h1>
   </div>
-    <footer class="card-footer">
-    <a href="/product/{{this._id}}" class="card-footer-item">View</a>
-  </footer>
-
+    {{#if this.rent}}
+    <h1 class="title is-6">${{this.price}} /month</h1>
+    {{else}}
+    <h1 class="title is-6">${{this.price}}</h1>
+    {{/if}}
+    <p>Posted: {{this.newTime}}</p>
+</div>
+<footer class="card-footer">
+  <a href="/product/{{this._id}}" class="card-footer-item">View Product</a>
+</footer>
 </div>
 {{/each}}
 </div>

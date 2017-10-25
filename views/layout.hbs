@@ -12,7 +12,7 @@
   <body>
 
 
-    <nav class="navbar is-light">
+    <nav class="navbar is-light" style="padding-bottom: 15px;">
       <div class="navber-brand">
         <a class="navbar-item title" href="/">Goldy Shopy!</a>
 
@@ -28,7 +28,7 @@
 
           <a href="/postListing"  style="margin: auto;"><button class="button is-success">Post Listing</button></a>
             <div class="navbar-item has-dropdown is-hoverable">
-    <a class="navbar-link">
+    <a class="navbar-link" id="drop">
       <span class="navbar-item">
         <figure class="image is-16x16">
           <img src="{{ user.picture }}" alt="Image">
@@ -71,9 +71,9 @@
     </div>
   </section>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATTpBUEZi5-hU-cCTlzAbThG0sVFszouU&callback=initMap"></script>
-    {{#each scripts}}
+
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATTpBUEZi5-hU-cCTlzAbThG0sVFszouU&callback=initMap"></script> -->
+  {{#each scripts}}
       <script src="/javascripts/{{this}}"></script>
     {{/each}}
     <script>
