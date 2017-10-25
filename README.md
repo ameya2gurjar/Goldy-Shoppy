@@ -4,30 +4,38 @@ CSCI 5117, Fall 2017, [assignment description](https://docs.google.com/document/
 
 ## App Info:
 
-* Team Name: TODO
-* App Name: TODO
+* Team Name: A team has no name!
+* App Name: Goldy Shoppy!
 * App Link: <https://TODO.herokuapp.com/>
 
 ### Students
 
-* First Last, x500@umn.edu
-* ...
+* Ameya Gurjar, gurja010@umn.edu
+* Pratik Kotwal, kotwa007@umn.edu
+* Aishwarya MAlpani, malpa004@umn.edu
 
 
 ## Key Features
 
-**Describe the most challenging features you implemented
-(one sentence per bullet, maximum 4 bullets):**
-
-* ...
-
+* Implementation google maps in the apartments listing
+* Authentication on the basis of UMN id
+*
 
 ## Screenshots of Site
 
-**[Add a screenshot of each key page (maximum 4)](https://stackoverflow.com/questions/10189356/how-to-add-screenshot-to-readmes-in-github-repository)
-along with a very brief caption:**
+Home Page: Shows the last 4 products uploaded by users, has an option to post a request,
+post a product and other options like view listings, requests, profile
+![](/Screenshot1.png)
 
-![](https://media.giphy.com/media/XIqCQx02E1U9W/giphy.gif)
+Google Map: Shows a pop up with the location of and details of the apartment
+![](/Screenshot2.png)
+
+Product Page: Displays the details of the product
+![](/Screenshot3.png)
+
+Authentication: Doesn't allow to login if the email id is not a umn id
+![](/Screenshot4.png)
+
 
 
 ## External Dependencies
