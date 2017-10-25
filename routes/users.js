@@ -165,7 +165,7 @@ router.post('/editProfile', upload.single('profileImage'), function(req, res){
   req.db.collection('users').updateOne({_id:req.user._json.sub}, {$set:{displayName:req.body.displayName,
     email:req.body.email, contactNumber:req.body.contactNumber, picture : req.file}}, function(err, result){
       console.log(result);
-      res.send('cool');
+
     });
 
   });

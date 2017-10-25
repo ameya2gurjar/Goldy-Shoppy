@@ -24,7 +24,7 @@ body {
 }
 
 #requirementsList{
-  width: 330px;
+  width: 320px;
   height: 500px;
   overflow-y: scroll;
   border-width: 2px;
@@ -209,4 +209,8 @@ margin-bottom: 20px;
 
 .title{
   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+.postedTimeFont{
+  font-size: 10px;
 }

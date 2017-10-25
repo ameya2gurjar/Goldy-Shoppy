@@ -82,7 +82,7 @@ function sendEmail(data){
 });
 
 const mailOptions = {
-from: 'Cool App Name<'+data.from+'>', // sender address
+from: 'Goldy Shppy<'+data.from+'>', // sender address
 to: data.to, // list of receivers
 replyTo: data.from,
 subject: data.sub, // Subject line
