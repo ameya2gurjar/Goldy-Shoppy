@@ -251,7 +251,11 @@
 
   <div id="requirementsList">
     {{#each request}}
-    <div class="card" postedBy={{this.name}}>
+    <div class="card">
+      <input type="hidden" name="postedBy" value="{{this.name}}">
+      <input type="hidden" name="item" value="{{this.requirement}}">
+      <input type="hidden" name="category" value="{{this.category}}">
+      <input type="hidden" name="email" value="{{this.email}}">
       <header class="card-header">
         <p class="card-header-title">Category - {{this.category}}
           <br>
@@ -261,7 +265,7 @@
       <div class="card-content">
         <div class="content">
           <p>{{this.requirement}}</p>
-          <p>{{this.requestMessage}}</p>
+          <p>{{this.message}}</p>
         </div>
       </div>
       {{#if user}}
@@ -279,23 +283,25 @@
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">Email</p>
+      <p class="modal-card-title">Contact Buyer</p>
       <button class="delete" aria-label="close" id="closeCommentForm"></button>
     </header>
     <section class="modal-card-body">
+      <input type="hidden" id="commentEmail"/>
+      <h6><b id="buyer"></b></h6>
       <div class="field">
-        <label class="label">To</label>
+        <label id="sendMailTo" class="label">Subject</label>
         <div class="control has-icons-left has-icons-right">
-          <input class="input " type="text" id="sendMailTo" readonly>
+          <input class="input " type="text" id="subject" />
         </div>
       </div>
       <div class="control">
-        <label class="label">Send Reply</label>
+        <label class="label">Message Content</label>
         <textarea class="textarea" placeholder="Textarea" id="commentMessage"></textarea>
       </div>
     </section>
     <footer class="modal-card-foot">
-      <button class="button is-success" id="saveComment">Send Mail</button>
+      <button class="button is-success" id="saveComment">Contact Buyer</button>
     </footer>
   </div>
 </div>

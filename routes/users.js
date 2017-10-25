@@ -10,6 +10,18 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+router.get('/allRequests', function(req, res){
+  // console.log(req.user._json.sub);
+
+  req.db.collection('requests').find({'userId':req.user._json.sub}).toArray(function(err, requests){
+      for(var i in requests){
+        // console.log(products[i].images);
+        var m =moment(requests[i].requested_at).fromNow();
+        requests[i].newTime = m;
+      }
+      res.render('allRequests', {requests: requests, user: req.user, scripts: ['allListing.js']});
+  });
+});
 
 router.get('/allListings', function(req, res){
   // console.log(req.user._json.sub);
@@ -33,6 +45,27 @@ router.get('/editListing/:productId', function(req, res){
       res.render('editListing',{user: req.user, product: product, scripts: ['local.js']});
   });
 
+});
+
+router.post('/deleteRequest', function(req, res){
+  console.log(req.body.id);
+  var id = ObjectId(req.body.id);
+  req.db.collection('requests').deleteOne({_id: id}, function(err, results){
+        // console.log(results);
+        //send success status to client side
+        res.status(200).send('success');
+    });
+});
+
+
+router.post('/deleteListing', function(req, res){
+  console.log(req.body.id);
+  var id = ObjectId(req.body.id);
+  req.db.collection('products').deleteOne({_id: id}, function(err, results){
+        // console.log(results);
+        //send success status to client side
+        res.status(200).send('success');
+    });
 });
 
 router.get('/editProfile', function(req, res){
