@@ -1,3 +1,10 @@
+var userId = $('input[name="user-logged-in"]').val();
+console.log(userId);
+
+if(!!userId){
+  $('.comment-if-user').css('display', 'block');
+}
+
 $("#toggle-book").click(function(){
   $('#book-content').toggle();
   $(this).children('i').toggleClass("fa-chevron-down fa-chevron-up");

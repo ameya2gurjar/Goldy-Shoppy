@@ -1,3 +1,4 @@
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATTpBUEZi5-hU-cCTlzAbThG0sVFszouU"></script>
 <div class="bg"></div>
 <div align="left" class="container">
     <form action="/search" method="get">
@@ -34,7 +35,9 @@
     </div>
     <div class="columns">
         <div class="column">
+          {{#if sitem}}
             <p>Showing results for <b>"{{sitem}}"</b></p>
+            {{/if}}
         </div>
         <div class="field columns is-1 is-mobile">
             <label class="label column">Type:</label>
@@ -61,9 +64,18 @@
         </div>
     </div>
     </form>
+<input type="hidden" name="cat" value="{{category}}"/>
+      <div id="map" style="margin-top: 20px; display: none"></div>
 
 <div align="center" class="resultcard columns is-multiline">
 {{#each result}}
+
+{{#if this.apartment}}
+  <input type="hidden" value="{{this.apartment.location}}" class="apartment-location-for-map"/>
+  <input type="hidden" value="{{this._id}}" class="apartment-id-for-map"/>
+  <input type="hidden" value="{{this.name}}" class="apartment-name-for-map"/>
+  <input type="hidden" value="{{this.img}}" class="apartment-img-for-map"/>
+{{/if}}
 <div class="card">
 <div class="card-image">
   <figure class="image is-4by3 allListingsImg">
