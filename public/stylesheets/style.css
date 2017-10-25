@@ -170,7 +170,7 @@ margin-bottom: 20px;
 .red-cross{
   position : absolute;
     display:none;
-    top:40%; 
+    top:40%;
     width:40px;
     margin:0 auto; left:0px;
     right:0px;
@@ -178,8 +178,10 @@ margin-bottom: 20px;
     opacity: 0.7;
 }
 
-.itemsContainer { 
+.itemsContainer {
     float:left;
     position:relative
 
-
+    #photoUpload{
+      margin-left: 10px;
+    }
