@@ -145,6 +145,11 @@ background-repeat: no-repeat;
   margin: auto;
 }
 
+#photouploadBox{
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
 .productComment{
   background-color: #eee;
 padding: 5px;

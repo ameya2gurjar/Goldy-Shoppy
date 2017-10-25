@@ -59,7 +59,7 @@
             <div class="card-content column is-one-quarter itemBox">
               <div class="content">
                 <p>Type:{{this.type}}</p>
-                <p>Price:{{this.price}}</p>
+                <p>Price:${{this.price}}</p>
               </br>
             </div>
           </div>
@@ -91,7 +91,7 @@
           <div class="card-content column is-one-quarter itemBox">
             <div class="content">
               <p>Type:{{this.type}}</p>
-              <p>Price:{{this.price}}</p>
+              <p>Price:${{this.price}}</p>
             </br>
           </div>
         </div>
@@ -124,7 +124,7 @@
         <div class="card-content column is-one-quarter itemBox">
           <div class="content">
             <p>Type:{{this.type}}</p>
-            <p>Price:{{this.price}}</p>
+            <p>Price:${{this.price}}</p>
           </br>
 
         </div>
@@ -158,7 +158,7 @@
       <div class="card-content column is-one-quarter itemBox">
         <div class="content">
           <p>Type:{{this.type}}</p>
-          <p>Price:{{this.price}}</p>
+          <p>Price:${{this.price}}</p>
         </br>
       </div>
     </div>
@@ -190,7 +190,7 @@
       <div class="card-content column is-one-quarter itemBox">
         <div class="content">
           <p>Type:{{this.type}}</p>
-          <p>Price:{{this.price}}</p>
+          <p>Price:${{this.price}}</p>
         </br>
       </div>
     </div>
@@ -268,11 +268,13 @@
           <p>{{this.message}}</p>
         </div>
       </div>
-      {{#if user}}
+
       <footer class="card-footer">
+
         <a href="#" class="card-footer-item addComment">Comment</a>
+
       </footer>
-      {{/if}}
+
     </div>
     {{/each}}
   </div>
