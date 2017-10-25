@@ -161,3 +161,9 @@ margin: 10px 0;
 overflow: scroll;
 margin-bottom: 20px;
 }
+
+@media(max-width:1023px){
+  #drop{
+    display:none;  
+  }
+}
