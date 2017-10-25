@@ -42,7 +42,7 @@ router.get('/editListing/:productId', function(req, res){
   var productId = ObjectId(req.params.productId);
   req.db.collection('products').findOne({'_id':productId}, function(err, product){
     console.log(product);
-      res.render('editListing',{user: req.user, product: product, scripts: ['local.js']});
+      res.render('editListing',{user: req.user, product: product, scripts: ['postListing.js']});
   });
 
 });

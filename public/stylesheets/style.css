@@ -111,13 +111,6 @@ background-repeat: no-repeat;
   margin: 0 !important;
 }
 
-.allListingsName{
-  height: 2.2em;
-  line-height: 1.1;
-  overflow: hidden;
-}
-
-
 #goToPosting{
   margin-top: 20px;
 
@@ -162,6 +155,16 @@ overflow: scroll;
 margin-bottom: 20px;
 }
 
+@media(max-width:1023px){
+  #drop{
+    display:none;
+  }
+
+  .home-page-card{
+    margin: auto;
+  }
+}
+
 .edit_prod_image:hover{
     opacity: 0.5;
 }
@@ -185,10 +188,6 @@ margin-bottom: 20px;
 
 #photoUpload{
   margin-left: 10px;
-}
-
-.cancel-button{
-    color: white
 }
 
 

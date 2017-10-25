@@ -49,24 +49,28 @@
         </div>
         <div class="columns" id="apartment-content" style="clear:both">
           {{#each apartment}}
-          <div class="card itemCard">
-            <header class="card-header">
-              <p class="card-header-title">{{this.name}}</p>
-            </header>
-            <figure class="image is-4by3">
-              <img src="/upload/view/{{this.displayImage}}" alt="Oops!No image found!">
+          <div class="card home-page-card">
+          <div class="card-image">
+            <figure class="image is-4by3 allListingsImg">
+              <img src="/upload/view/{{this.displayImage}}">
             </figure>
-            <div class="card-content column is-one-quarter itemBox">
-              <div class="content">
-                <p>Type:{{this.type}}</p>
-                <p>Price:{{this.price}}</p>
-              </br>
-            </div>
           </div>
-          <footer class="modal-card-foot">
-            <a href="/product/{{this._id}}">View Product</a>
+          <div class="card-content">
+            <input type="hidden" name="id" value="{{this._id}}"/>
+            <div class="allListingsName">
+              <h1 class="title is-5"><b>{{this.name}}</b></h1>
+            </div>
+              {{#if this.rent}}
+              <h1 class="title is-6">${{this.price}} /month</h1>
+              {{else}}
+              <h1 class="title is-6">${{this.price}}</h1>
+              {{/if}}
+              <p>Posted: {{this.newTime}}</p>
+          </div>
+          <footer class="card-footer">
+            <a href="/product/{{this._id}}" class="card-footer-item">View Product</a>
           </footer>
-        </div>
+          </div>
         {{/each}}
       </div>
     </div>
