@@ -34,7 +34,13 @@ router.get('/', function(req, res, next) {
                     searchBy= {$and: [{ $text: { $search: sitem  } },{category:category} ] };
                 }
             else{
-                searchBy= {$and:[{$and: [{ $text: { $search: sitem  } },{category:category}]},{type: sellType} ] };
+                if(sellType!=null){
+                    searchBy= {$and:[{$and: [{ $text: { $search: sitem  } },{category:category}]},{type: sellType} ] };
+                }
+                else{
+                    searchBy= {$and: [{ $text: { $search: sitem  } },{category:category} ] };
+                }
+                
             }
             
             
