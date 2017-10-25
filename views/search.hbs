@@ -64,9 +64,11 @@
         </div>
     </div>
     </form>
+
+
+{{#if result}}
 <input type="hidden" name="cat" value="{{category}}"/>
       <div id="map" style="margin-top: 20px; display: none"></div>
-
 <div align="center" class="resultcard columns is-multiline">
 {{#each result}}
 
@@ -100,6 +102,9 @@
 </div>
 {{/each}}
 </div>
+{{else}}
+<h1>No results found</h1>
+{{/if}}
 </div>
 
 <!--
