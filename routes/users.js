@@ -50,11 +50,61 @@ router.get('/allListings', function(req, res){
 router.get('/editListing/:productId', function(req, res){
   // console.log(req.user._json.sub);
   var productId = ObjectId(req.params.productId);
+  
   req.db.collection('products').findOne({'_id':productId}, function(err, product){
-    console.log(product);
-      res.render('editListing',{user: req.user, product: product, scripts: ['postListing.js']});
+//    console.log(product);
+      res.render('editListing',{user: req.user, product: product, scripts: ['postListing.js', 'editListing.js']});
   });
+});
 
+router.post('/editListing', function(req, res){
+    var productId = ObjectId(req.body.id);
+    var prod = Object();
+    prod.name = req.body.name;
+    prod.description = req.body.description;
+    prod.category = req.body.category;
+    prod.type = req.body.type;
+    prod.price = req.body.price;
+    
+    if(prod.category == "Apartment"){
+      var apartment = Object();
+      apartment.beds = req.body.beds;
+      apartment.bath = req.body.bath;
+      apartment.area = req.body.area;
+      apartment.pets = req.body.pets;
+      apartment.parking = req.body.parking;
+      apartment.ac = req.body.ac;
+      apartment.address = req.body.address;
+      prod.apartment = apartment;
+
+  }
+    if(prod.category == "Book"){
+    prod.book = true;
+  }
+  if(prod.category == "Furniture"){
+    prod.furniture = true;
+  }
+  if(prod.category == "Bike"){
+    prod.bike = true;
+  }
+  if(prod.category == "Other"){
+    prod.other = true;
+  }
+
+
+  if(prod.type == "Rent"){
+      var rent = Object();
+      rent.start = req.body.from_date;
+      rent.end = req.body.to_date;
+      prod.rent = rent;
+  }
+    console.log(prod);
+  req.db.collection('products').updateOne({'_id':productId},{$set: {prod}}, function(err, results){
+     console.log(results);
+      res.send("Done");
+  });
+    console.log(req.body.name);
+    console.log(req.body.description);
 });
 
 router.post('/deleteRequest', function(req, res){

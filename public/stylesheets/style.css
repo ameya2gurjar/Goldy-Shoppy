@@ -196,7 +196,12 @@ margin-bottom: 20px;
 .itemsContainer {
     float:left;
     position:relative
-  }
+}
+
+#photoUpload{
+  margin-left: 10px;
+}
+
 
 #mainPageHeading{
   text-align: center;

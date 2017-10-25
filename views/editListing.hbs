@@ -2,10 +2,10 @@
   <h1 class="title has-text-centered">Edit This Listing</h1>
   <div class="columns">
     <div class="column is-half is-offset-one-quarter">
-      <form action="/postListing/newListing" method="post" enctype="multipart/form-data" onsubmit="return validateMyForm();">
         <input type="hidden" value="{{user._json.sub}}" name="user_id"/>
         <input type="hidden" name="location" required/>
 
+        <input type="hidden" name="prodId" value="{{product._id}}"/>
       <div class="field">
         <label class="label">Name</label>
         <div class="control">
@@ -25,8 +25,8 @@
         <div class="control">
           <div class="select">
             <select id="select-category" name="category">
-              <option value="Book">Book</option>
-              <option value="Furniture">Furniture</option>
+              <option value="Book" {{#if product.book}} selected {{/if}}>Book</option>
+              <option value="Furniture" {{#if product.furniture}} selected {{/if}}>Furniture</option>
               <option value="Bike" {{#if product.bike}} selected {{/if}}>Bike</option>
               <option value="Apartment" {{#if product.apartment}} selected {{/if}} >Apartment</option>
               <option value="Other">Other</option>
@@ -170,11 +170,11 @@
         </label>
       </div>
 
-      <div class="control">
-        <input type="submit" class="button is-success" value="Save Changes"/>
+      <div class="control column is-narrow">
+        <input class="save-button button is-success" value="Save Changes"/>
+          <div class="cancel-button button is-danger"><a href="/user/allListings">Cancel</a></div>
       </div>
-          <a href="/user/allListings" class="button is-danger">Cancel</a>
-    </form>
+
     </div>
   </div>
 
