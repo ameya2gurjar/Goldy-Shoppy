@@ -40,14 +40,5 @@ Authentication: Doesn't allow to login if the email id is not a umn id
 
 ## External Dependencies
 
-**Document integrations with 3rd Party code or services here.
-Please do not document required libraries (e.g., Express, Bulma).**
-
-* Library or service name: description of use
-* ...
-
-**If there's anything else you would like to disclose about how your project
-relied on external code, expertise, or anything else, please disclose that
-here:**
-
-...
+* Google Map API : For maps
+* Moment.js : To get relative time
