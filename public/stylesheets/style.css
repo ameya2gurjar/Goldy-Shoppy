@@ -5,6 +5,13 @@ body {
   font-variant: normal;
   font-weight: 500;
   line-height: 30px;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow-y: scroll;
 }
 
 .header{
@@ -13,6 +20,7 @@ body {
   font-variant: normal;
   font-weight: 500;
   line-height: 30px;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 #requirementsList{
@@ -190,6 +198,10 @@ margin-bottom: 20px;
     position:relative
   }
 
-    #photoUpload{
-      margin-left: 10px;
-    }
+#mainPageHeading{
+  text-align: center;
+}
+
+.title{
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}

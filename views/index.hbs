@@ -1,4 +1,3 @@
-
 <div class="container">
   <h1 class="header">Welcome to {{title}}</h1>
   <input type="hidden" name="user-logged-in" value="{{user._json.sub}}"/>
@@ -54,19 +53,11 @@
             <figure class="image is-4by3 allListingsImg">
               <img src="/upload/view/{{this.displayImage}}">
             </figure>
-<<<<<<< HEAD
-            <div class="card-content column is-one-quarter itemBox">
-              <div class="content">
-                <p>Type:{{this.type}}</p>
-                <p>Price:${{this.price}}</p>
-              </br>
-=======
           </div>
           <div class="card-content">
             <input type="hidden" name="id" value="{{this._id}}"/>
             <div class="allListingsName">
               <h1 class="title is-5"><b>{{this.name}}</b></h1>
->>>>>>> ed36b6981aaf2309941df344d9e12ced2ea260b4
             </div>
               {{#if this.rent}}
               <h1 class="title is-6">${{this.price}} /month</h1>
@@ -103,7 +94,7 @@
           <div class="card-content column is-one-quarter itemBox">
             <div class="content">
               <p>Type:{{this.type}}</p>
-              <p>Price:${{this.price}}</p>
+              <p>Price:{{this.price}}</p>
             </br>
           </div>
         </div>
@@ -136,7 +127,7 @@
         <div class="card-content column is-one-quarter itemBox">
           <div class="content">
             <p>Type:{{this.type}}</p>
-            <p>Price:${{this.price}}</p>
+            <p>Price:{{this.price}}</p>
           </br>
 
         </div>
@@ -170,7 +161,7 @@
       <div class="card-content column is-one-quarter itemBox">
         <div class="content">
           <p>Type:{{this.type}}</p>
-          <p>Price:${{this.price}}</p>
+          <p>Price:{{this.price}}</p>
         </br>
       </div>
     </div>
@@ -202,7 +193,7 @@
       <div class="card-content column is-one-quarter itemBox">
         <div class="content">
           <p>Type:{{this.type}}</p>
-          <p>Price:${{this.price}}</p>
+          <p>Price:{{this.price}}</p>
         </br>
       </div>
     </div>
@@ -283,7 +274,6 @@
 
       <footer class="card-footer comment-if-user" style="display: none">
         <a href="#" class="card-footer-item addComment">Comment</a>
-
       </footer>
 
     </div>

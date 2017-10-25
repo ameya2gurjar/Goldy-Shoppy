@@ -144,21 +144,21 @@
           <input value="{{product.price}}" id="price-input" class="input" type="number" step="0.01" placeholder="Price ($)" name="price" required>
         </div>
       </div>
-        
-        <div class="columns is-multiline"> 
+
+        <div class="columns is-multiline">
         {{#each product.images}}
-          <div class="itemsContainer column is-half">    
+          <div class="itemsContainer column is-half">
               <div class="vimage"><img class="edit_prod_image" src="/upload/view/{{this}}"/></div>
               <div class="red-cross"><img src="https://media-public.canva.com/MAAQomYxxMU/1/thumbnail.png" /></div>
-          </div>      
-        {{/each}} 
-        </div>    
+          </div>
+        {{/each}}
+        </div>
 
 
       <div class="file">
         <label id="price-label" class="label">Upload additional Images</label>
         <label class="file-label">
-          <input class="file-input" type="file" name="images" multiple required>
+          <input class="file-input" type="file" name="images" multiple>
           <span class="file-cta">
             <span class="file-icon">
               <i class="fa fa-upload"></i>
@@ -169,7 +169,7 @@
           </span>
         </label>
       </div>
-      
+
       <div class="control">
         <input type="submit" class="button is-success" value="Save Changes"/>
       </div>
@@ -177,6 +177,6 @@
     </form>
     </div>
   </div>
-    
+
 
 </div>

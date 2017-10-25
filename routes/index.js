@@ -33,7 +33,7 @@ router.get('/', function(req, res, next) {
       // console.log(apartments);
 
 
-      res.render('index', { title: 'Go Goldy!', user: req.user, request :requests,
+      res.render('index', { title: 'Goldy Shoppy!', user: req.user, request :requests,
       apartment : apartments, book:books, bike:bikes, furniture:furniture, other:others, scripts:['mainPage.js']});
     });
   });
