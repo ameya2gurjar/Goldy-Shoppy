@@ -3,6 +3,8 @@ var router = express.Router();
 
 var mongodb = require('mongodb');
 
+var moment = require('moment');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   req.db.collection('requests').find().toArray(function(err, requests){
@@ -13,6 +15,8 @@ router.get('/', function(req, res, next) {
       for(var i in products){
         if(!!products[i].images){
           products[i].displayImage = products[i].images[0];
+          var m =moment(products[i].posted_at).fromNow();
+          products[i].newTime = m;
         }
         if(products[i].category == "Apartment" && aptCounter != 4){
           apartments[aptCounter++] = products[i];
