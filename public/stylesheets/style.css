@@ -161,3 +161,7 @@ margin: 10px 0;
 overflow: scroll;
 margin-bottom: 20px;
 }
+
+#photoUpload{
+  margin-left: 10px;
+}
