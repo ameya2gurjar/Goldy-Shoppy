@@ -37,7 +37,17 @@
             <p>Showing results for <b>"{{sitem}}"</b></p>
         </div>
         <div class="field columns is-1 is-mobile">
-            <label class="label column">Sort By</label>
+            <label class="label column">Type:</label>
+            <div class="control column">
+                  <div class="select">
+                    <select id="select-sell-type" name="SellType">
+                      <option value="All">All</option>
+                      <option value="Sell">Sell</option>
+                      <option value="Rent">Rent</option>
+                    </select>
+                  </div>
+                </div>
+            <label class="label column">Sort:</label>
              <div class="control column">
                   <div class="select">
                     <select id="select-sort-type" name="SortBy">
@@ -54,34 +64,27 @@
 
 <div align="center" class="resultcard columns is-multiline">
 {{#each result}}
-     <div class="card">
-         <p class="title is-4">{{this.name}}</p>
-  <div class="card-image">
-    <figure class="image is-4by3">
-      <img src="/upload/view/{{this.img}}">
-    </figure>
+<div class="card">
+<div class="card-image">
+  <figure class="image is-4by3 allListingsImg">
+    <img src="/upload/view/{{this.img}}">
+  </figure>
+</div>
+<div class="card-content">
+  <input type="hidden" name="id" value="{{this._id}}"/>
+  <div class="allListingsName">
+    <h1 class="title is-4">{{this.name}}</h1>
   </div>
-    <p>Price: {{this.price}}</p>
-  <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-        <figure class="image is-48x48">
-          <img src="{{this.posted_by.picture}}">
-        </figure>
-      </div>
-      <div class="media-content">
-        <p class="title is-7">Posted By: {{this.posted_by.name}}</p>
-      </div>
-    </div>
-
-    <div class="content">
-      <time datetime="2016-1-1">{{this.newTime}}</time>
-    </div>
-  </div>
-    <footer class="card-footer">
-    <a href="/product/{{this._id}}" class="card-footer-item">View</a>
-  </footer>
-
+    {{#if this.rent}}
+    <h1 class="title is-6">${{this.price}} /month</h1>
+    {{else}}
+    <h1 class="title is-6">${{this.price}}</h1>
+    {{/if}}
+    <p>Posted: {{this.newTime}}</p>
+</div>
+<footer class="card-footer">
+  <a href="/product/{{this._id}}" class="card-footer-item">View Product</a>
+</footer>
 </div>
 {{/each}}
 </div>
