@@ -1,7 +1,7 @@
 
 <div class="container">
   <h1 class="header">Welcome to {{title}}</h1>
-
+  <input type="hidden" name="user-logged-in" value="{{user._json.sub}}"/>
   <form action="/search" method="get">
     <div class="columns is-gapless  is-mobile">
       <div class="field column is-narrow">
@@ -272,11 +272,11 @@
           <p>{{this.message}}</p>
         </div>
       </div>
-      {{#if user}}
-      <footer class="card-footer">
+
+      <footer class="card-footer comment-if-user" style="display: none">
         <a href="#" class="card-footer-item addComment">Comment</a>
       </footer>
-      {{/if}}
+
     </div>
     {{/each}}
   </div>
