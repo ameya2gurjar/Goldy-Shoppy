@@ -19,7 +19,7 @@ CSCI 5117, Fall 2017, [assignment description](https://docs.google.com/document/
 
 * Implementation google maps in the apartments listing
 * Authentication on the basis of UMN id
-*
+* Send email to users when others reply or show interest in their product
 
 ## Screenshots of Site
 
@@ -42,3 +42,4 @@ Authentication: Doesn't allow to login if the email id is not a umn id
 
 * Google Map API : For maps
 * Moment.js : To get relative time
+* Nodemailer: send emails to users
